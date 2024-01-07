@@ -29,8 +29,10 @@ public class Main {
     
     // criação do inimigo
     private static void createEnemy(String enemyName){
+        // criação do inimigo 
         Enemy glob = new Enemy(enemyName);
         
+        // apresentando o inimigo
         System.out.println("A foe has appeared in front of you!");
         System.out.println(glob);
     }
