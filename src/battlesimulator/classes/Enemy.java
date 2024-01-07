@@ -5,4 +5,14 @@ public class Enemy extends Character{
         super(name);
     }
     
+    @Override
+    public final void atackEnemy(Character enemy, Character hero){
+        if (hero.lucky > rng.nextInt(13) + 1) {
+            causeDamage(enemy, hero);
+            System.out.printf("Caused %d damage", enemy.damage);
+        }
+        else{
+            System.out.println("Atack fail");
+        }
+    }
 }
