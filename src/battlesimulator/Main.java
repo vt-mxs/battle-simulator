@@ -9,16 +9,30 @@ import battlesimulator.classes.Enemy;
 public class Main {
     
     // método para criação do personagem
-    public static void createHero(Scanner input){
+    private static void createHero(Scanner input){
         String heroName;
         // recebendo o nome
         System.out.print("Hero name => ");
         heroName = input.nextLine();
-        // criação do héroi
-        Hero newHero = new Hero(heroName);
-        System.out.println("Hero was successfully created!");
-        // apresentação do héroi
-        System.out.println(newHero);
+        
+        if (heroName.isEmpty()) {
+            System.out.println("Hero name cannot be null");
+        }
+        else{
+            // o heroi é criado se o nome passado não estiver vázio
+            Hero newHero = new Hero(heroName);
+            System.out.println("Hero was successfully created!");
+            // apresentação do héroi
+            System.out.println(newHero);
+        }
+    }
+    
+    // criação do inimigo
+    private static void createEnemy(String enemyName){
+        Enemy glob = new Enemy(enemyName);
+        
+        System.out.println("A foe has appeared in front of you!");
+        System.out.println(glob);
     }
     
     /**
@@ -29,21 +43,10 @@ public class Main {
         // os inputs do usuário
         Scanner input = new Scanner(System.in);
         
-        // chamada do método para criação do personagem
+        // chamada do método para criação do héroi
         createHero(input);
         
-        // criação do inimigo
-        Enemy glob = new Enemy("Glob");
-        
-        System.out.println("A foe has appeared in front of you!");
-        System.out.println(glob);
-        
-        System.out.print(
-            """
-            What do you do?
-            1 - Atack
-            2 - Run
-            => """
-        );
+        // chamada do método para criação do inimigo
+        createEnemy("Glob");
     }
 }
