@@ -28,7 +28,7 @@ public class Character {
     @Override
     public String toString(){
         return String.format(
-            "Name: %s | Life: %d | Damage: %d | Lucky: %d",
+            "Name: %s | Life: %d | Damage: %d | Lucky: %d\n",
             name,
             life,
             damage,
