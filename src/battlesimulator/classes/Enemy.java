@@ -8,7 +8,7 @@ public class Enemy extends Character{
     @Override
     public final void atackEnemy(Character enemy, Character hero){
         if (enemy.lucky > rng.nextInt(13) + 1) {
-            causeDamage(enemy, hero);
+            recieveDamage(enemy, hero);
             System.out.printf("Caused %d damage", enemy.damage);
         }
         else{
