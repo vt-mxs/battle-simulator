@@ -38,29 +38,27 @@ public class Character {
     
     // métodos protegidos especícicos da classe
     
-    protected int causeDamage(Character atacker, Character receptor){
+    protected int recieveDamage(Character atacker, Character receptor){
         return atacker.damage -= receptor.life;
     }
     
     // métodos publicos especícicos da classe
     
-    public void atackEnemy(Character atacker, Character target){
-        if (atacker.lucky > rng.nextInt(13) + 1) {
-            causeDamage(atacker, target);
-            System.out.printf("Caused %d damage", atacker.damage);
-        }
-        else{
-            System.out.println("Atack fail");
+    public void atackEnemy(Character attacker, Character target){
+        if (attacker.lucky > rng.nextInt(13) + 1) {
+            int damageCaused = recieveDamage(attacker, target);
+            System.out.printf("%s caused %d damage to %s\n", attacker.name, damageCaused, target.name);
+        } else {
+            System.out.println("Attack failed");
         }
     }
+
     
     public boolean runWay(Character runner){
-        if(runner.lucky > rng.nextInt(19) + 1){
-            return true;
-        }
-        else{
-            return false;
-        }
+        // se a sorte for maior ou igual que
+        // o número gerado, o personagem conseguiu fugir(retorno: true)
+        // se não, a fuga falhou (retorno: false)
+        return runner.lucky >= rng.nextInt(19) + 1;
     }
     
     // getters e setters
